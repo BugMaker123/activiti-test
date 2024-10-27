@@ -31,10 +31,12 @@ class Demo1ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		// 部署流程-流程图在resources/processes下
-		repositoryService.createDeployment()
+		// 部署流程-流程图在resources/processes下---
+		// 一次部署后不需要再部署，除非流程图有改动
+/*		repositoryService.createDeployment()
 				.addClasspathResource("processes/Test1.bpmn20.xml")
-				.deploy();
+				.deploy();*/
+		// 启动流程
 		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("Test1");
 		System.out.println("流程实例ID：" + processInstance.getId());
 		System.out.println("流程定义ID：" + processInstance.getProcessDefinitionId());
